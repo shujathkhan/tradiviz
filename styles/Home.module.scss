@@ -1,0 +1,93 @@
+$bgColor: #060A1B;
+$fontColor: white;
+
+$cardColor: #141529;
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  background: $bgColor;
+  height: 100vh;
+
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    .stat-card {
+      background: $cardColor;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      margin: 20px;
+      width: 50%;
+      height: 70%;
+      max-height: max-content;
+    }
+
+    .table-container {
+      height: 70%;
+      width: 50%;
+      padding: 30px;
+      padding-top: 60px;
+    }
+  }
+
+}
+
+/*CUSTOM PRELOADER*/
+.loader-bg {
+  z-index: 999999;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: grid;
+}
+
+.loader-p {
+  border: 0 solid transparent;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  place-self: center;
+}
+
+.loader-p:before,
+.loader-p:after {
+  content: '';
+  border: 0.5em solid #15bde3;
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loader 2s linear infinite;
+  opacity: 0;
+}
+
+.loader-p:before {
+  animation-delay: 0.5s;
+}
+
+@keyframes loader {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+/*end of custom preloader*/
