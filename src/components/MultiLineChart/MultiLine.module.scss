@@ -1,4 +1,4 @@
-.chart-label {
+.chart-label-container {
   color: white;
   font-size: 15px;
   margin-left: 30px;
@@ -8,4 +8,27 @@
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   box-shadow: 0px -2px 1px 0px inset #ffffff14;
+
+
+  .chart-label {
+    padding-right: 20px;
+    font-size: 15px;
+    border-right: 2px solid;
+  }
+
+  .chart-download-label {
+    padding: 10px 20px;
+    text-decoration: underline;
+  }
+
+  .chart-export-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+
+    >div {
+      top: 5px;
+    }
+  }
 }

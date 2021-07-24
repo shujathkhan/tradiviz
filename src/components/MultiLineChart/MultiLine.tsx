@@ -1,6 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import styles from "./MultiLine.module.scss";
+import Image from "next/image";
+import { downloadImage } from "plotly.js";
 
 const Plot = dynamic(() => import("react-plotly.js"), {
   ssr: false,
@@ -24,10 +26,31 @@ const MultiLine = (props: {
     });
   };
 
+  const downloadGraph = () => {
+    downloadImage("graphPlot", {
+      format: "png",
+      filename: "graph",
+      width: 1500,
+      height: 750,
+    });
+  };
+
   return (
     <>
-      <div className={styles["chart-label"]}>{label}</div>
+      <span className={styles["chart-label-container"]}>
+        <span className={styles["chart-label"]}>{label}</span>
+        <button className={styles["chart-export-btn"]} onClick={downloadGraph}>
+          <span className={styles["chart-download-label"]}>Download</span>
+          <Image
+            src={"/export-csv.svg"}
+            alt={"Export as csv"}
+            width={20}
+            height={20}
+          />
+        </button>
+      </span>
       <Plot
+        divId={"graphPlot"}
         data={[
           {
             type: "scatter",
