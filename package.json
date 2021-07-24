@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "ag-grid-community": "^25.3.0",
     "ag-grid-react": "^25.3.0",
     "clsx": "^1.1.1",
