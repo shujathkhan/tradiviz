@@ -43,17 +43,18 @@ $breakpoints: ('small': 768px,
 
     .title-card {
       color: $fontColor;
-      height: 20%;
+      height: 20vh;
       display: grid !important;
       place-items: start !important;
       padding: 0px 35px !important;
+      width: 50% !important;
 
       .title-description {
         margin-top: -30px;
       }
 
       @include respond-to('small') {
-        width: 100vw;
+        width: 100vw !important;
         height: 30vh !important;
       }
     }
@@ -64,7 +65,8 @@ $breakpoints: ('small': 768px,
       display: grid;
       place-items: center;
       margin: 20px;
-      width: 50%;
+      min-width: 50%;
+      max-width: max-content;
       height: 70%;
       flex: 1;
       max-height: max-content;
