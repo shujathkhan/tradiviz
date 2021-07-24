@@ -69,6 +69,7 @@ const MultiLine = (props: {
             line: { color: "#17BECF" },
           },
         ]}
+        config={{ responsive: true }}
         layout={{
           xaxis: {
             autorange: true,

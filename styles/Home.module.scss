@@ -3,6 +3,32 @@ $fontColor: white;
 
 $cardColor: #141529;
 
+$breakpoints: ('small': 768px,
+  'medium': 992px,
+  'large': 1200px) !default;
+
+/// Mixin to manage responsive breakpoints
+/// @author Hugo Giraudel
+/// @param {String} $breakpoint - Breakpoint name
+/// @require $breakpoints
+@mixin respond-to($breakpoint) {
+
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+
+    // Prints a media query based on the value
+    @media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    +"Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -25,6 +51,11 @@ $cardColor: #141529;
       .title-description {
         margin-top: -30px;
       }
+
+      @include respond-to('small') {
+        width: 100vw;
+        height: 30vh !important;
+      }
     }
 
     .stat-card {
@@ -37,6 +68,11 @@ $cardColor: #141529;
       height: 70%;
       flex: 1;
       max-height: max-content;
+
+      @include respond-to('small') {
+        width: fit-content;
+        height: 100vh;
+      }
     }
 
     .table-container {
@@ -46,6 +82,15 @@ $cardColor: #141529;
       flex: 1 50%;
       padding-top: 60px;
       padding-bottom: 50px;
+
+      @include respond-to('small') {
+        width: max-content !important;
+        height: 100vh;
+      }
+    }
+
+    @include respond-to('small') {
+      flex-flow: column nowrap;
     }
   }
 
