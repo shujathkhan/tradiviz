@@ -1,6 +1,10 @@
 import React from "react";
-import Plot from "react-plotly.js";
+import dynamic from "next/dynamic";
 import styles from "./MultiLine.module.scss";
+
+const Plot = dynamic(() => import("react-plotly.js"), {
+  ssr: false,
+});
 
 type AggregatedExchangeType = {
   date: string;

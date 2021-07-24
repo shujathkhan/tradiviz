@@ -1,22 +1,17 @@
 /* eslint-disable react/display-name */
 import Head from "next/head";
-import styles from "../styles/Home.module.scss";
+import styles from "../../styles/Home.module.scss";
 import React, { useEffect, useState } from "react";
-import { columnDefs } from "./Dashboard/tableConfig";
+import { columnDefs } from "../featureConfigs/tableConfig";
 import dynamic from "next/dynamic";
+import Loader from "../components/Loader";
 
-const Loader = () => (
-  <div className={styles["loader-bg"]}>
-    <div className={styles["loader-p"]}></div>
-  </div>
-);
-
-const MultiLineChart = dynamic(() => import("./components/MultiLineChart"), {
+const MultiLineChart = dynamic(() => import("../components/MultiLineChart"), {
   ssr: false,
   loading: () => <Loader />,
 });
 
-const Table = dynamic(() => import("./components/Table"), {
+const Table = dynamic(() => import("../components/Table"), {
   ssr: false,
   loading: () => <Loader />,
 });
@@ -71,27 +66,26 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {aggregatedData && detailedData ? (
-          <>
-            <div className={`${styles["stat-card"]}`}>
-              <MultiLineChart
-                data={aggregatedData}
-                label={"Aggregated Stock Exchange"}
-              />
-            </div>
-            <div
-              className={`${styles["stat-card"]} ${styles["table-container"]}`}
-            >
-              <Table
-                detailedData={detailedData}
-                columnDefs={columnDefs}
-                label={"Stock Market Data"}
-              />
-            </div>
-          </>
-        ) : (
-          <Loader />
-        )}
+        <div className={`${styles["stat-card"]} ${styles["title-card"]}`}>
+          <h1>Tradiviz</h1>
+          <div className={styles["title-description"]}>
+            A graphical representation of stock exchange
+          </div>
+        </div>
+
+        <div className={`${styles["stat-card"]}`}>
+          <MultiLineChart
+            data={aggregatedData}
+            label={"Aggregated Stock Exchange"}
+          />
+        </div>
+        <div className={`${styles["stat-card"]} ${styles["table-container"]}`}>
+          <Table
+            detailedData={detailedData}
+            columnDefs={columnDefs}
+            label={"Stock Market Data"}
+          />
+        </div>
       </main>
     </div>
   );

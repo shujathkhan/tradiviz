@@ -80,32 +80,7 @@ input {
   background: $cardColor !important;
 }
 
-// .ag-cell-label-container {
-//   /*Necessary to allow for text to grow vertically*/
-//   height: 100%;
-//   background-color: $bgColor;
-// }
-
-// .ag-header-cell-label {
-//   /*Necessary to allow for text to grow vertically*/
-//   height: 100%;
-//   padding: 0 !important;
-//   background-color: $bgColor;
-// }
-
-// .ag-header-cell-label .ag-header-cell-text {
-//   color: $fontColor;
-//   background-color: $bgColor;
-// }
-
-
-// .ag-pivot-on .ag-header-cell-label .ag-header-cell-text {
-//   /*There is empty space left at the top from the menu and sort
-//     icons not used*/
-//   margin-top: 25px;
-// }
-
-// /*Floating filters*/
+/*Floating filters*/
 .ag-filter {
   background-color: $bgColor !important;
   color: $fontColor !important;
