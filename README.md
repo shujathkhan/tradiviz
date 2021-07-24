@@ -4,8 +4,7 @@
 
 This is a Graphical dashboard tomportray stock exchange data developed using Typescript, NextJS, Sass, React, Plotly, Babel, Webpack and deployed on Vercel.
 
-![image](https://user-images.githubusercontent.com/13440061/126874175-0d63d3a9-d107-46db-8067-9f089a1d9ae8.png)
-
+![image](https://user-images.githubusercontent.com/13440061/126875523-c233ef68-23db-4909-a9a9-16854af7d66c.png)
 
 ## Getting Started
 First, run the development server:
